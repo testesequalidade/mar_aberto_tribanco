@@ -7,6 +7,6 @@ Funcionalidade: Pequisa de produtos
 
 @pesquisar_produto
 Cenário: Pesquisa de produto
-  Dado que acesso a aplicacao
+  Dado que acessei a aplicacao
   Quando realizo a pesquisa do produto 'MÁQUINA DE LAVAR'
-  Então visualizo as informações do produto 'MÁQUINA DE LAVAR 20KG'
+  Então visualizo as informações do produto 'MÁQUINA DE LAVAR 20KG' na pagina
