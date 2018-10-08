@@ -5,6 +5,6 @@ Funcionalidade: Regulamento
   Para ver as regras do programa
 
 Cenário: Visualizar regulamento
-  Dado que acesso a aplicacao
+  Dado que acessei a aplicacao
   Quando navego a tela Regulamento
   Então visualizo as regras do programa
