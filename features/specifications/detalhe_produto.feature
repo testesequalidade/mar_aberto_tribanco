@@ -6,10 +6,16 @@ Funcionalidade: Detalhe de produto
   Para ver suas informações de forma detalhada
 
 @detalhe_produto @acesso_mar_aberto
-Cenário: Visualizar detalhe de produto
-  Dado que pesquiso o produto 'MÁQUINA DE LAVAR'
+Esquema do Cenário: Visualizar detalhe de produto
+  Dado que pesquiso o produto '<produto>'
   Quando acesso o detalhe do produto
-  Então visualizo suas informações 'MÁQUINA DE LAVAR 20KG'
+  Então visualizo a informacao '<detalhe>'
+
+  Exemplos:
+    | produto          | detalhe               |
+    | MÁQUINA DE LAVAR | MÁQUINA DE LAVAR      |
+    | MÁQUINA DE LAVAR | Suporta 20kg de roupa |
+    | MÁQUINA DE LAVAR | PONTO FRIO            |
 
 @consultar_disponibilidade @acesso_mar_aberto
 Esquema do Cenario: Consultar disponibilidade de entrega

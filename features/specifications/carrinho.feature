@@ -1,7 +1,7 @@
 #language: pt
 
-Funcionalidade: Carrinho de produtos
-  Sendo um usuario da plataforma
+Funcionalidade: Carrinho de compras
+  Sendo um usuario cadastrado ou nao na plataforma
   Desejo adicionar produtos ao Carrinho
   Para que possa realizar resgates
 
@@ -14,9 +14,9 @@ Cenário: Adicionar produto ao carrinho
 @remover_produto @acesso_mar_aberto
 Cenário: Remover produto do carrinho
   Dado que adiciono o produto 'MÁQUINA DE LAVAR 10KG' no carrinho
-  Quando realizo a remocao deste produto 'MÁQUINA DE LAVAR 10KG'
+  Quando acesso o carrinho e removo o produto 'MÁQUINA DE LAVAR 10KG'
   Então o carrinho deve deixar de exibir o produto 'MÁQUINA DE LAVAR 10KG'
-  E seu preço e frete devem deixar de ser considerados nos calculos
+  E seu preco deve deixar de ser considerado no valor total do carrinho
 
 @alterar_quantidade @acesso_mar_aberto
 Esquema do Cenário: Alterar quantidade do produto no carrinho
@@ -29,16 +29,22 @@ Esquema do Cenário: Alterar quantidade do produto no carrinho
     | MÁQUINA DE LAVAR | 1          | 1000     | 1000        |
     | BATEDEIRA        | 10         | 100      | 1000        |
 
-@forcar_login @produto_carrinho_deslogado
-Cenário: Realizar login ao tentar concluir carrinho
-  Dado que realizo a tentativa de concluir o carrinho estando deslogado
-  Quando sou redirecionado para a pagina de login
-  E informo os dados de acesso '25246573451' e senha 'aaaa1*'
-  Então devo ser redirecionado para a tela de checkout
+@resgate_com_usuario_deslogado
+Cenário: Realizar login ao concluir carrinho
+  Dado que adiciono o produto 'MÁQUINA DE LAVAR' no carrinho
+  E realizo a tentativa de concluir o resgate
+  Quando informo os dados de acesso '15973564801' e senha '1234' para efetuar login
+  Então devo visualizar o produto 'MÁRUINA DE LAVAR' com quantidade '1' no carrinho
 
-@cancelar_login @produto_carrinho_deslogado
-Cenário: Nao efetuar o Login ao concluir o carrinho estando em mar aberto
-  Dado que realizo a tentativa de concluir o carrinho estando deslogado
-  Quando sou redirecionado para a pagina de login
-  E não realizo minha autenticacao
-  Então nao devo conseguir finalizar o carrinho
+@validacao_login_carrinho
+Esquema do Cenário: Validacao de login ao concluir carrinho estando deslogado
+  Dado que adiciono o produto 'MÁQUINA DE LAVAR' no carrinho
+  E realizo a tentativa de concluir o resgate
+  Quando informo os dados de acesso '<login>' e '<senha>'
+  Então devo visualizar a mensagem '<mensagem>'
+
+  Exemplos:
+    | login       | senha | mensagem                   |
+    | 12345678901 |       | Informe a senha            |
+    |             | 1234  | Informe o nome de usuario  |
+    | 12345678901 | 1234  | Usuário ou senha inválidos |
