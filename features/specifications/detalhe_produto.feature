@@ -7,7 +7,7 @@ Funcionalidade: Detalhe de produto
 
 @detalhe_produto @acesso_mar_aberto
 Esquema do Cenário: Visualizar detalhe de produto
-  Dado que pesquiso o produto '<produto>'
+  Dado que pesquisei o produto '<produto>'
   Quando acesso o detalhe do produto
   Então visualizo a informacao '<detalhe>'
 
@@ -19,7 +19,7 @@ Esquema do Cenário: Visualizar detalhe de produto
 
 @consultar_disponibilidade @acesso_mar_aberto
 Esquema do Cenario: Consultar disponibilidade de entrega
-  Dado que pesquiso o produto '<produto>'
+  Dado que pesquisei o produto '<produto>'
   Quando consulto sua disponibilidade de entrega para o cep '<cep>'
   Então visualizo a mensagem de disponibilidade '<mensagem>'
 
@@ -28,8 +28,8 @@ Esquema do Cenario: Consultar disponibilidade de entrega
     | MAQUINA DE LAVAR | 30150-300 | Realizamos a entrega no CEP indicado.      | 
     | MAQUINA DE LAVAR | 69931-97  | No CEP indicado, não realizamos a entrega. |
 
-@resgatar_produto @acesso_mar_aberto
+@adicionar_produto_no_carrinho @acesso_mar_aberto
 Cenário: Resgatar produto atraves da tela Detalhe de Produto 
-  Dado que acesso o detalhe do produto 'MÁQUINA DE LAVAR'
-  Quando realizo o resgate do produto 
-  Então devo visualizar o produto 'MÁQUINA DE LAVAR' no carrinho
+  Dado que acessei o detalhe do produto 'MÁQUINA DE LAVAR'
+  Quando adiciono o produto ao carrinho
+  Então devo visualiza-lo no carrinho
